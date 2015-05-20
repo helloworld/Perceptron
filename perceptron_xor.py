@@ -1,4 +1,4 @@
-from random import random, choice, uniform
+from random import random, choice, uniform, shuffle
 
 TRIALS = 4000
 ALPHA = 0.25
@@ -29,6 +29,7 @@ def trainPerceptronWeights():
 	epochs = 0
 	w = [uniform(-1, 1) for i in range(4)]
 	while(not trained(w)):
+		shuffle(INPUTS)
 		for x in INPUTS:
 			if(epochs > 3000):
 				return w, epochs
